@@ -1,0 +1,77 @@
+@startuml loja-virtual
+
+left to right direction
+
+class Cliente {
+  - id: Long
+  - nome: String
+  - email: String
+  - enderecos: List<Endereco>
+  - pedidos: List<Pedido>
+}
+
+class Endereco {
+  - rua: String
+  - numero: String
+  - cidade: String
+  - estado: String
+  - cep: String
+}
+
+class Produto {
+  - id: Long
+  - nome: String
+  - preco: BigDecimal
+  - estoque: int
+}
+
+class Pedido {
+  - id: Long
+  - data: LocalDateTime
+  - itens: List<ItemPedido>
+  - cliente: Cliente
+  - pagamento: Pagamento
+  - notaFiscal: NotaFiscal
+}
+
+class ItemPedido {
+  - produto: Produto
+  - quantidade: int
+  - precoUnitario: BigDecimal
+}
+
+class Pagamento {
+  - id: Long
+  - dataPagamento: LocalDateTime
+  - valorPago: BigDecimal
+}
+
+class NotaFiscal {
+  - id: Long
+  - numero: String
+  - dataEmissao: LocalDateTime
+}
+
+interface Notificador {
+  + enviarNotificacao(cliente: Cliente, mensagem: String): void
+}
+
+class NotificadorEmail {
+  - emailRemetente: String
+}
+
+class NotificadorSMS {
+  - numeroOrigem: String
+}
+
+' Relacionamentos
+Cliente "1" o-- "*" Endereco
+Cliente "1" o-- "*" Pedido
+Pedido "*" o-- "*" ItemPedido
+ItemPedido "*" --> "1" Produto
+Pedido "1" --> "1" Pagamento
+Pedido "1" --> "1" NotaFiscal
+
+Notificador <|.. NotificadorEmail
+Notificador <|.. NotificadorSMS
+@enduml

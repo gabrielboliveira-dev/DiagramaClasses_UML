@@ -10,7 +10,7 @@ O objetivo deste repositório é:
 
 - Aprender e aplicar conceitos de **modelagem orientada a objetos**.
 - Representar graficamente os componentes de sistemas com **Diagramas de Classes UML**.
-- Utilizar ferramentas como **PlantUML**, **Figma (com plugin PlantUML)** e outras para gerar os diagramas.
+- Utilizar ferramentas como **PlantUML** para gerar os diagramas.
 - Explorar estudos de caso práticos com exemplos do mundo real.
 
 ---
@@ -18,19 +18,12 @@ O objetivo deste repositório é:
 ## Ferramentas Utilizadas
 
 - [PlantUML](https://plantuml.com/)
-- [Figma](https://figma.com) com o plugin [PlantUML for Figma](https://www.figma.com/community/plugin/1174601410657338669)
 - VS Code + extensão PlantUML
 - Markdown (`.md`) para documentação
 
 ---
 
 ## Como visualizar os diagramas
-
-### Usando o Figma:
-
-1. Instale o plugin "PlantUML for Figma".
-2. Cole o conteúdo do arquivo `.puml`.
-3. Visualize o diagrama gerado diretamente na tela.
 
 ### Usando o VS Code:
 
